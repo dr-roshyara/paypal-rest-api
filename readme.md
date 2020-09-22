@@ -1,12 +1,13 @@
 ## Paypal implementation  with PHP PAYPAL REST API 
 	This repo is to implement paypal REST API form scratch. 
-#Follow the following steps
+	#Follow the following steps
 	composer init 
-// Prerequisites: PHP 5.3 or above
-// cURL, json & openssl extensions must be enabled
-#	#Install Paypal Rest Api 
+	// Prerequisites: PHP 5.3 or above
+	// cURL, json & openssl extensions must be enabled
+	##Install Paypal Rest Api 
 	composer require "paypal/rest-api-sdk-php:*"
-#	#create start.php file 
+# Define Payment 
+	 #create start.php file 
 	 mkdir src 
 	 touch src/start.php 
 	 In the start.php file, we now start php session 
@@ -30,7 +31,7 @@
 		'validation.level'=>'log'
 	]);
 
-#Create database 
+# Create database 
 	#Create a database e.g. paypal 
 	#We use here mysql: 
 		username:root 
@@ -53,15 +54,18 @@
 			$stmt1->execute(['user_id'=>$_SESSION['user_id']]);
 			$user =$stmt1->fetchObject();
 
-#	#Create a Payment Method now. 
-	# create a payment.php file to pay the membership fee. 
+# Create a Payment Method now. 
+		To create the payment, send the payment object to PayPal. This action provides a redirect URL to which to redirect the customer. After the customer accepts the payment, PayPal redirects the customer to the return 	or cancel URL that you specified in the payment object.
+		# create a payment.php file to pay the membership fee. 
 	 	mkdir member 
 	 	touch member/payment.php 
-	 #In this file, the payment will be defined and created.	
-	 #Look at the codes here. If everything goes ok , it will be forwarded to further page payments/pay.php.
-	 #If cancelled , it will be forwarded to page: cancelled.php 
-#	#payment/pay.php 
+		 #In this file, the payment will be defined and created.	
+		 #Look at the codes here. If everything goes ok , it will be forwarded to further page 
+		 payments/pay.php.
+		 #If cancelled , it will be forwarded to page: cancelled.php 
+# Execute Payment 
+	#payment/pay.php 
 	#Here will the be payment executed. 
 	Finally, it will be directed to complete.php page
-	
+
 
