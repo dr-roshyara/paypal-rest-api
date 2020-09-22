@@ -1,0 +1,13 @@
+{
+    "name": "roshyara/paypal",
+    "description": "\"This is a paypal payment method\"",
+    "authors": [
+        {
+            "name": "Nab Roshyara",
+            "email": "roshyara@gmail.com"
+        }
+    ],
+    "require": {
+        "paypal/rest-api-sdk-php": "*"
+    }
+}
